@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "JetBrains-mono";
+    src: url(../fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf);
+}
+
+@font-face {
+    font-family:"Inter-Medium" ;
+    src: url(../fonts/Inter/static/Inter_18pt-Medium.ttf);
+}
+
+
+:root{
+    --cor_principal:rgba(10, 18, 42, 1);
+    --cor_background:rgba(231, 222, 205, 1);
+    --font_principal:"Inter-Medium";
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.title {
+    background-color: rgba(10, 18, 42, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.pomodoro__name, .pomodoro__abbr {
+    color: #ffffff;
+    font-family: "JetBrains-mono";
+    margin: 0;
+}
+.pomodoro__abbr{
+    font-weight: 300;
+    
+}
+
+.main {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: -1; 
+    top: 0;
+    left: 0;
+    background-color: rgba(231, 222, 205, 1);
+}
+.pomodoro__container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+.adicionar{
+    padding: 8px;
+    width: 200px;
+    background-color: rgba(10, 18, 42, 1);
+    color: white;
+    font-family: "Inter-Medium";
+    border-radius: 7px;
+    border-color: transparent;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#url__music, #name__music{
+width: 370px;
+height: 38px;
+border-radius: 4px;
+border-color: transparent;
+margin-bottom: 6px;
+}
+
+#url__music, #name__music::placeholder{
+    font-family: "JetBrains-mono";
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.musics{
+    background-color: #ffffff;
+    width: 290px;
+    height: 325px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+
+.name__musics{
+    font-family: "JetBrains-mono";
+    width: 236px;
+    height: 26px;
+    background-color: rgba(217, 217, 217, 1);
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.menu__inferior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    transform: translateX(50%);
+    gap: 25px;
+    background-color: var(--cor_principal);
+    height: 55px;
+    width: 360px;
+    border-radius: 12px;
+    margin-left: auto; margin-right: auto;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  span {
+    color: #ffffff;
+    font-family: var(--font_principal);
+  } 

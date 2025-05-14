@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Focus and Task System</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <div>
+        <nav class="title">
+            <h1 class="pomodoro__abbr">Y.F.T.S</h1>
+            <p class="pomodoro__name">Your Focus and Task System</p>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="pomodoro__container">
+            <p id="period">Período de Foco</p>
+            <h1 id="pomodoro__counter">00:00:00</h1>
+            <div class="pomodoro__controls">
+                  <button id="start">Inciar</button>
+                  <button id="pause">Pausar</button>
+                  <button id="restart">Recomeçar</button>
+            </div>
+            <div class="progress__bar">
+                <progress value="0" max="100" style="width: 361px;"></progress>
+            </div>      
+                <div class="pomodoro__tasks">
+                    <div class="pomodoro__task">
+                        <p id="task">Tarefas</p>
+                        <img id="task__icon" src="../images/Icon.svg" alt="configurações">
+                    </div>
+                        <div class="checklist">
+                            <label for="task__1">
+                            <input type="checkbox" name="task__1" id="task__1">
+                            Estudar matemática</label>
+                            <label for="task__2">
+                            <input type="checkbox" name="task__2" id="task__2">
+                            Estudar números Reais
+                            </label>
+                            <label for="task__3">
+                            <input type="checkbox" name="task__3" id="task__3">
+                            Estudar progamação</label>
+                    </div>
+                </div>
+         </div>
+         <div>
+             <footer class="menu__inferior">
+                 <div class="menu">
+                 <img src="../images/resumo.png" alt="resumo">
+                 <span>Resumo</span>
+                 </div>
+                 <div class="menu">
+                     <img src="../images/música.png" alt="música">
+                     <span>Música</span>
+                 </div>
+                 <div class="menu">
+                     <img src="../images/diário.png" alt="diário">
+                     <span>Diário</span>
+                 </div>
+                 <div class="menu">
+                     <img src="../images/engrenagem.png" alt="Ajustes">
+                     <span>Ajustes</span>
+                 </div>
+             </footer>
+         </div>
+        </div>
+</body>
+</html>
