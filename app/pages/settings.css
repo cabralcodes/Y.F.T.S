@@ -30,8 +30,7 @@ body {
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  z-index: 1;
-  width: 100%;
+  width: 100vw;
 }
 
 .pomodoro__name,
@@ -48,7 +47,7 @@ body {
   height: 100vh;
   position: fixed;
   width: 100%;
-  /* z-index: -1; */
+ z-index: 1; 
   top: 0;
   left: 0;
   background-color: rgba(231, 222, 205, 1);
@@ -66,8 +65,6 @@ body {
     justify-content: center;
     position: fixed;
     bottom: 20px;
-    left: 25%;
-    transform: translateX(50%);
     gap: 25px;
     background-color: var(--cor_principal);
     height: 55px;
@@ -85,3 +82,81 @@ body {
     color: #ffffff;
     font-family: var(--font_principal);
   }
+
+
+  .set__choronometer{
+    background-color: #ffffff;
+    width: 332px;
+    height: 256px;
+    margin-top: 100px;
+    border-radius: 8px;
+  }
+
+
+
+  .set__choronometer .mini__titles{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    gap: 115px;
+  }
+
+  .set__choronometer h4{
+    font-family: "Inter-Medium";
+    font-weight: bold;
+
+  }
+
+  .options {
+    font-family: "Inter-Medium";
+    font-weight: lighter;
+  }
+
+  .mini__titles{
+    font-family: "Inter-Medium";
+    font-weight: bold;
+  }
+
+  .set__choronometer #minute, #pause{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+
+  .set__choronometer > .minutes_and_pause > input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+  }
+
+  #minutes {
+    margin-right: 10px;
+  }
+
+
+
+  .minutes_and_pause{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    font-family: "Inter-Medium";
+  }
+
+  .minutes_and_pause #minute{
+    margin-left: 20px; 
+  }
+
+  .options{
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .set__task{
+    background-color: #ffffff;
+    margin-top: 20px;
+    width: 325px;
+    height: 210px;
+  }
+
+
