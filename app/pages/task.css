@@ -249,6 +249,7 @@ span{
 
 .tasks{
     font-family: var(--font_principal);
+    font-weight: bold;
     display: flex;
     align-items: flex-start;
     align-content: space-between;

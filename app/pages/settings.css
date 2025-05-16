@@ -10,6 +10,12 @@
   src: url(../fonts/Inter/static/Inter_18pt-Medium.ttf);
 }
 
+@font-face {
+  font-family: "Inter-Regular";
+  src: url(../fonts/Inter/static/Inter_18pt-Regular.ttf);
+}
+
+
 :root {
   --cor_principal: rgba(10, 18, 42, 1);
   --cor_background: rgba(231, 222, 205, 1);
@@ -104,12 +110,23 @@ body {
   .set__choronometer h4{
     font-family: "Inter-Medium";
     font-weight: bold;
-
+    
+  }
+  
+  .options{
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter-Regular";
+    font-weight: lighter;
+    font-size: 16px;
   }
 
-  .options {
-    font-family: "Inter-Medium";
-    font-weight: lighter;
+  #option__1, #option__2, #option__3{
+    margin-left: 5px;
+  }
+
+  .set__choronometer .options label {
+    text-align: left;
   }
 
   .mini__titles{
@@ -140,23 +157,117 @@ body {
     flex-direction: row;
     gap: 60px;
     font-family: "Inter-Medium";
+
   }
 
   .minutes_and_pause #minute{
     margin-left: 20px; 
   }
 
-  .options{
-    display: flex;
-    flex-direction: column;
-    
-  }
 
-  .set__task{
+  .set__reminder{
     background-color: #ffffff;
     margin-top: 20px;
     width: 325px;
     height: 210px;
+    border-radius: 8px;    
   }
 
+  .set__reminder h4 {
+    font-family: "Inter-Medium";
+    margin-bottom: 0;
+  }
+
+  .set__reminder p {
+    font-family: "Inter-Regular";
+    margin-top: 10px;
+    margin-bottom: 90px;
+  }
+
+  .set__reminder a {
+    font-family: "Inter-Regular";
+    font-size: 14px;
+    padding-left: 15px;
+    font-weight: bold;
+    color: var(--cor_principal);
+  }
+
+
+  .add__task{
+    
+    border: 1px solid black;
+}
+
+.add__task h1 {
+    margin-bottom: 0;
+    margin-top: 60px;
+    color: #000000;
+    font-family: "JetBrains-mono";
+    font-size: 24px;
+}
+
+.gerenciar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+#task__bar{
+    width: 300px;
+    height: 20px;
+    border-radius: 5px;
+    border-color: var(--cor_principal);
+}
+
+.tasks{
+    font-family: var(--font_principal);
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+    align-content: space-between;
+    flex-direction: column;
+
+}
+
+.task__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    height: 20px;
+    width: 90%;
+    border-bottom:2px solid black;
+    
+}
+
+.adicionar{
+    padding:8px 8px 8px 8px;
+    width: 90px;
+    background-color: rgba(10, 18, 42, 1);
+    color: white;
+    font-family: "Inter-Medium";
+    border-radius: 7px;
+    
+}
+
+.checked {
+    text-decoration-line: line-through;
+    text-decoration-color: #888;         
+    text-decoration-thickness: 3px;      
+    text-decoration-skip-ink: none;
+    color: #888;
+  }
+
+  .add__task{
+    position: fixed;
+    z-index: 1;
+    margin-top: 40px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    width: 554px;
+    height:550px;
+}
 
