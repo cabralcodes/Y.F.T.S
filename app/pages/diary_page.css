@@ -43,15 +43,14 @@ body {
 .pomodoro__abbr {
   font-weight: 300;
 }
-
 .main {
-  height: 100vh;
-  position: fixed;
-  width: 100%;
-  /* z-index: -1; */
-  top: 0;
-  left: 0;
-  background-color: rgba(231, 222, 205, 1);
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: -1; 
+    top: 0;
+    left: 0;
+    background-color: rgba(231, 222, 205, 1);
 }
 .pomodoro__container {
   display: flex;
@@ -111,36 +110,35 @@ body {
   margin: 0;
 }
 
-.menu__inferior {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 20px;
-  left: 25%;
-  transform: translateX(50%);
-  gap: 25px;
-  background-color: var(--cor_principal);
-  height: 55px;
-  width: 360px;
-  border-radius: 12px;
+.menu__inferior{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    gap: 25px;
+    background-color: var(--cor_principal);
+    height: 55px;
+    width: 360px;
+    border-radius: 12px;
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+span{
+    color: #ffffff;
+    font-family: var(--font_principal);
 }
 
-span {
-  color: #ffffff;
-  font-family: var(--font_principal);
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cards__container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 500px;
 }
 
 .add__page{
@@ -193,4 +191,36 @@ span {
   font-family: "Inter-Medium";
 border-color: transparent;
   border-radius: 7px;
+}
+
+@media (max-width:320px) {
+    .cards__container{
+      width: 300px;
+      height: 500px;
+      overflow-x: auto;
+      position: relative;
+      
+    }
+    .main{
+      z-index: 0;
+    }
+
+    .search{
+      gap: 0;
+    }
+    #search__bar{
+      width: 150px;
+    }
+
+    .search h1{
+      font-size: 20px;
+    }
+
+    .adicionar{
+      width: 80px;
+    }
+
+    .menu__inferior{
+      width: 300px;
+    }
 }

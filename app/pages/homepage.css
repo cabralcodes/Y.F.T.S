@@ -78,7 +78,7 @@ html, body {
     font-family: var(--font_principal);
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 63px;
+    font-size: 53px;
     font-weight: 500;
     letter-spacing: 7%;
 }
@@ -117,7 +117,8 @@ html, body {
 }
 
 .pomodoro__tasks{
-    width: 360px;
+    text-align: justify;
+    width: 260px;
 }
 
 .pomodoro__task{
@@ -165,8 +166,6 @@ input[type="checkbox"]{
     justify-content: center;
     position: fixed;
     bottom: 20px;
-    left: 25%;
-    transform: translateX(50%);
     gap: 25px;
     background-color: var(--cor_principal);
     height: 55px;
@@ -264,4 +263,17 @@ span{
     width: 90%;
     border-bottom:2px solid black;
     
+}
+
+@media (max-width:320px) {
+    .menu__inferior{
+        width: 330px;
+    }
+    progress{
+        width: 261px;
+    }
+    .pomodoro__task{
+        gap: 0;
+    }
+
 }
