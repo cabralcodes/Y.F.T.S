@@ -167,3 +167,25 @@ margin-bottom: 6px;
     color: #ffffff;
     font-family: var(--font_principal);
   } 
+
+  @media (min-width:320px) {
+        #name__music, #url__music{
+            width: 290px;
+        }
+
+        .menu__inferior{
+            width: 310px;
+            margin-top: 50px;
+        }
+
+        iframe {
+            margin-top: 50px;
+            width: 338px;
+        }
+
+        .musics{
+            margin-top: 60px;
+            height: 290px;
+            overflow-x: auto;
+        }
+  }

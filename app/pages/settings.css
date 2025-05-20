@@ -271,3 +271,17 @@ body {
     height:550px;
 }
 
+@media (min-width:320px) {
+  .set__choronometer{
+    width: 320px;
+    height: 300px;
+  }
+
+  .set__reminder p {
+    margin-left: 15px;
+  }
+
+  .add__task{
+    width: 320px;
+  }
+}

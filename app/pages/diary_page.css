@@ -110,6 +110,7 @@ body {
   margin: 0;
 }
 
+
 .menu__inferior{
     display: flex;
     align-items: center;
@@ -133,6 +134,7 @@ span{
     flex-direction: column;
     align-items: center;
 }
+
 
 .cards__container {
   display: flex;
@@ -194,17 +196,48 @@ border-color: transparent;
 }
 
 @media (max-width:320px) {
-    .cards__container{
-      width: 300px;
-      height: 500px;
-      overflow-x: auto;
-      position: relative;
-      
-    }
-    .main{
-      z-index: 0;
-    }
+  .main{
+    z-index: 0;
+  }
 
+  .add__page{
+    width: 320px;
+  }
+
+  .salvar{
+    margin-right: 100px;
+  }
+
+  .apagar{
+    margin-right: 0;
+  }
+
+  #diary{
+    width: 319px;
+  }
+
+  .top__edit{
+    gap: 0;
+    justify-content: space-between;
+  }
+
+  .add__page h1{
+    margin: 0 auto;
+    
+  }
+
+  .top__edit h1 {
+    text-align: center;
+  }
+
+  .cards__container{
+    width: 300px;
+    height: 500px;
+    overflow-x: scroll;
+    position: relative;
+    
+  }
+  
     .search{
       gap: 0;
     }
@@ -222,5 +255,17 @@ border-color: transparent;
 
     .menu__inferior{
       width: 300px;
+    }
+
+}
+
+@media (max-width:768px) {
+    .search{
+      gap: 90px;
+    }
+    
+    .cards__container{
+       overflow-x: scroll;
+      position: relative;
     }
 }
