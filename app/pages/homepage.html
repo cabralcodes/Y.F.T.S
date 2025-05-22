@@ -8,15 +8,21 @@
 </head>
 <body>
     <div>
-        <nav class="title">
-            <h1 class="pomodoro__abbr">Y.F.T.S</h1>
-            <p class="pomodoro__name">Your Focus and Task System</p>
-        </nav>
     </div>
-    <div class="main">
+    <div class="fundo"> 
         <div class="pomodoro__container">
+            <nav class="title">
+                <h1 class="pomodoro__abbr">Y.F.T.S</h1>
+                <p class="pomodoro__name">Your Focus and Task System</p>
+            </nav>
             <p id="period">Período de Foco</p>
-            <h1 id="pomodoro__counter">00:00:00</h1>
+            <div>
+                <span id="hours">00</span>
+                <span id="pomodoro__counter">:</span>
+                <span id="minutes">00</span>
+                <span id="pomodoro__counter">:</span>
+                <span id="seconds">00</span>
+            </div>
             <div class="pomodoro__controls">
                   <button id="start">Inciar</button>
                   <button id="pause">Pausar</button>
@@ -45,23 +51,32 @@
                 </div>
                 <div class="menu__inferior">
                         <div class="menu">
-                        <img src="../images/resumo.png" alt="resumo">
-                        <span>Resumo</span>
+                        <a href="../pages/summary_page.html" target="_blank">
+                            <img src="../images/resumo.png" alt="resumo">
+                            <span>Resumo</span>
+                        </a>
                         </div>
                         <div class="menu">
-                            <img src="../images/música.png" alt="música">
-                            <span>Música</span>
+                            <a href="../pages/lofi_page.html" target="_blank">
+                                <img src="../images/música.png" alt="música">
+                                <span>Música</span>
+                            </a>
                         </div>
                         <div class="menu">
-                            <img src="../images/diário.png" alt="diário">
-                            <span>Diário</span>
+                            <a href="../pages/diary_page.html" target="_blank">
+                                <img src="../images/diário.png" alt="diário">
+                                <span>Diário</span>
+                            </a>
                         </div>
                         <div class="menu">
-                            <img src="../images/engrenagem.png" alt="Ajustes">
-                            <span>Ajustes</span>
+                            <a href="../pages/settings_page.html" target="_blank">
+                                <img src="../images/engrenagem.png" alt="Ajustes">
+                                <span>Ajustes</span>
+                            </a>
                         </div>
                 </div>
          </div>
-        </div>
+     </div>
+    <script src="timer.js" defer></script>
 </body>
 </html>

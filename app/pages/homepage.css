@@ -45,11 +45,10 @@ html, body {
     
 }
 
-.main {
+.fundo {
     height: 100vh;
     position: fixed;
-    width: 100%;
-    z-index: -1; 
+    width: 100vw;
     top: 0;
     left: 0;
     background-color: rgba(231, 222, 205, 1);
@@ -71,11 +70,8 @@ html, body {
     margin-bottom: 0;
 }
 
-#pomodoro__counter{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: var(--font_principal);
+#pomodoro__counter, #hours, #minutes, #seconds{
+    color: var(--cor_principal);
     margin-top: 0;
     margin-bottom: 0;
     font-size: 53px;
@@ -171,17 +167,23 @@ input[type="checkbox"]{
     height: 55px;
     width: 360px;
     border-radius: 12px;
+    z-index: 10;
+    
 }
 
 span{
+    
     color: #ffffff;
     font-family: var(--font_principal);
 }
 
-.menu{
+
+
+a {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    text-decoration: none;
 }
 
 
