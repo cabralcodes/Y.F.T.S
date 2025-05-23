@@ -94,6 +94,7 @@ html, body {
     font-family: "Inter-Medium";
     border-radius: 7px;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 
 .progress__bar{

@@ -99,7 +99,7 @@ a {
     background-color: #ffffff;
     width: 332px;
     height: 256px;
-    margin-top: 100px;
+    margin-top: 40px;
     border-radius: 8px;
   }
 
@@ -116,6 +116,16 @@ a {
     font-family: "Inter-Medium";
     font-weight: bold;
     
+  }
+
+  .set__choronometer a {
+      font-family: "Inter-Regular";
+    font-size: 14px;
+    padding-left: 15px;
+    font-weight: bold;
+    color: var(--cor_principal);
+    width: 100px;
+    text-align: justify;
   }
   
   .options{
@@ -191,7 +201,7 @@ a {
   .set__reminder p {
     font-family: "Inter-Regular";
     margin-top: 10px;
-    margin-bottom: 90px;
+    margin-bottom: 50px;
   }
 
   .set__reminder a {
@@ -200,6 +210,8 @@ a {
     padding-left: 15px;
     font-weight: bold;
     color: var(--cor_principal);
+    width: 100px;
+    text-align: justify;
   }
 
 
