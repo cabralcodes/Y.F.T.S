@@ -1,6 +1,39 @@
+//VARIÁVEIS NECESSÁRIAS
 let minute = document.getElementById('minute');
 let pause = document.getElementById('pause');
+let Notificacao = document.getElementById('option__3');
+let ConfigCronometro = document.getElementById('option__1');
 
+//---------------------------------------------------------------------------------------------
+
+Notificacao.addEventListener("change", async () => {
+  if (Notificacao.checked) {
+    const permission = await Notification.requestPermission();
+    const permitido = permission === "granted";
+    
+    localStorage.setItem("HabilitarNotificacao", String(permitido));
+
+    Notificacao.checked = permitido;
+    if (!permitido) {
+      alert("Notificações bloqueadas. O áudio também não funcionará.");
+    }
+  } else {
+    // Se desmarcou, desativa tudo
+    localStorage.setItem("HabilitarNotificacao", "false");
+  }
+});
+
+ConfigCronometro.addEventListener("change", ()=>{
+    if(ConfigCronometro.checked){
+        localStorage.setItem("TrocarPeriodo", "sim");
+    }
+    else {
+      localStorage.setItem("TrocarPeriodo", "nao");
+    }
+});
+
+
+// EVENTOS
 minute.addEventListener("change", (e) =>{
     let minuteValue = minute.value
     let pauseValue = pause.value

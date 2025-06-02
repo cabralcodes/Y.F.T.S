@@ -1,5 +1,3 @@
-const { createElement } = require("react");
-
 //VARIÁVEIS NECESSÁRIAS
 let intervaloID = null;
 let SpanHours = document.getElementById('hours');
@@ -26,12 +24,41 @@ let minutosPausa = Number(localStorage.getItem("MinutosPausa"));
 // FUNÇÕES
 function format(valor){
     return String(valor).padStart(2, "0");
-}    
+}
+
+function tocarSomSePermitido(tipo) {
+  // Verifica se está habilitado no localStorage
+  const notificacaoAtivada = localStorage.getItem("HabilitarNotificacao") === "true";
+  if (!notificacaoAtivada) return; 
+
+  // Mapeamento dos áudios
+  const caminhos = {
+    foco: "../audio/fim_foco.mp3",
+    pausa: "../audio/fim_pausa.mp3",
+    ciclos: "../audio/fim_4_ciclos.mp3",
+  };
+
+  const caminho = caminhos[tipo];
+  if (caminho) {
+    const audio = new Audio(caminho);
+    audio.play().catch(e => console.error("Erro ao tocar áudio:", e));
+  }
+}
+
+
+function notificarFimCiclo(tipo) {
+  const notificacaoAtivada = localStorage.getItem("HabilitarNotificacao") === "true";
+  if (!notificacaoAtivada) return;
+  
+  tocarSomSePermitido(tipo);
+  
+}
+
+
 
 function iniciarContagem (){
-
-    if(!intervaloID){
-        intervaloID = setInterval(() => { 
+    if (!intervaloID) {
+        intervaloID = setInterval(() => {
             if (segundos === 0) {
                 if (minutos === 0) {
                     if (horas > 0) {
@@ -45,41 +72,56 @@ function iniciarContagem (){
             } else {
                 segundos--;
             }
-
-
-            if(segundos === 0 && minutos === 0 && horas === 0 && modoAtual === 'foco'){
-                modoAtual = 'pausa'
-                console.log("oi");
+            if(localStorage.getItem("TrocarPeriodo") ==="sim"){
+            if (segundos === 0 && minutos === 0 && horas === 0 && modoAtual === 'foco') {
+                modoAtual = 'pausa';
                 periodoAtual.textContent = "Período de Pausa";
-                horas = HorasPausa
+                notificarFimCiclo("foco");
+                horas = HorasPausa;
                 minutos = minutosPausa;
-                return;
+                segundos = 0;
 
+                
+                return;
             }
 
-            if (horas === 0 && minutos === 0 && segundos ===0 && modoAtual === 'pausa'){
+            if (segundos === 0 && minutos === 0 && horas === 0 && modoAtual === 'pausa') {
                 modoAtual = 'foco';
                 periodoAtual.innerText = "Período de Foco";
+                notificarFimCiclo("pausa");                
                 horas = horasFoco;
                 minutos = MinutosFoco;
+                segundos = 0;
                 ContadorDeCiclos++;
                 console.log(ContadorDeCiclos);
-           
-                if ( ContadorDeCiclos >= 4){
-                    clearInterval(intervaloID);
-                        intervaloID = null;
-                }
+
+            } 
+            if (ContadorDeCiclos >= 4) {
+                clearInterval(intervaloID);
+                intervaloID = null;
+                notificarFimCiclo("ciclos");
+                return;
             }
             
 
-
+        }
+        else{ 
+            if( horas === 0 && minutos === 0 && segundos === 0){
+                    clearInterval(intervaloID);
+                    intervaloID = null;
+                    notificarFimCiclo("ciclos");
+                    
+                }
+        }
+            
             SpanHours.innerText = format(horas);
             SpanMinutes.innerText = format(minutos);
             SpanSeconds.innerText = format(segundos);
 
-        },1000)
+        }, 1000);
     }
-}        
+}
+   
 
 //------------------------------------------------------------------
 
@@ -89,12 +131,22 @@ iniciarTimer.addEventListener("click", iniciarContagem);
 reinciarTimer.addEventListener("click", (e) => {
     clearInterval(intervaloID);
     intervaloID = null;
+   if(localStorage.getItem("TrocarPeriodo") ==="sim"){
     horas = horasFoco;
     minutos = MinutosFoco;
     segundos = 0
     modoAtual = 'foco';
+    periodoAtual.innerText = "Período de Foco";
     ContadorDeCiclos = 0;
-
+   }
+   else {
+    if( horas === 0 && minutos === 0 && segundos === 0){
+            clearInterval(intervaloID);
+            intervaloID = null;
+            notificarFimCiclo("ciclos");
+                    
+    }
+   }
     SpanHours.innerText = format(horas);
     SpanMinutes.innerText = format(minutos);
     SpanSeconds.innerText = format(segundos);
@@ -135,7 +187,36 @@ window.addEventListener("beforeunload", (e) => {
 let AbrirTarefas = document.getElementById('div__tarefas');
 let FecharTarefas = document.getElementById('fechar__gerenciador');
 let GerenciarTarefas = document.getElementById('Gerenciador__de__tarefas');
-let CorpoDaTarefa = createElement("div")
+let AdicionarTarefa = document.getElementById('add_task');
+let BtnTarefa = document.getElementById("BtnTarefa");
+
+function NomeTarefa (){
+    let Nome = AdicionarTarefa.value.trim();
+    if (Nome === ""){
+        alert("Digite uma tarefa válida!");
+        return;
+    }
+
+    let taskItem = document.createElement("div");
+    taskItem.className = "task__row";
+
+
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = "task-" + Date.now();
+
+    let paragrafo = document.createElement("p");
+    paragrafo.htmlFor = checkbox.id;
+    paragrafo.textContent = Nome;
+
+    taskItem.appendChild(checkbox);
+    taskItem.appendChild(paragrafo);
+
+     document.getElementById("div__task").appendChild(taskItem);
+}
+
+BtnTarefa.addEventListener("click", NomeTarefa);
+
 
 
 //------------------------------------------------------------------
