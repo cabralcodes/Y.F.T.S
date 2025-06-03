@@ -53,3 +53,9 @@ pause.addEventListener("change", (e) => {
     localStorage.setItem("HorasPausa",horasPausa);
     localStorage.setItem("minutosPausa", minutosPausa);
 });
+
+//------------------------------------------------------------
+
+
+
+

@@ -213,6 +213,7 @@ a {
     text-decoration-thickness: 3px;      
     text-decoration-skip-ink: none;
     color: #888;
+    cursor: none;
   }
 
 
@@ -229,6 +230,20 @@ a {
 .add__task{
     
     border: 1px solid black;
+}
+
+#ApagarTarefa {
+    border: transparent;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn__apagar{
+    border: transparent;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
 }
 
 .add__task h1 {
