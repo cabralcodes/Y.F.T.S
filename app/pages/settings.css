@@ -247,6 +247,13 @@ a {
     border-color: var(--cor_principal);
 }
 
+.btn__apagar{
+    border: transparent;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
 .tasks{
     font-family: var(--font_principal);
     font-weight: bold;

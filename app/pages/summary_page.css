@@ -175,6 +175,12 @@ a {
   resize: none;
   font-family: "JetBrains-mono";
 }
+.botão__novo{
+  border: transparent;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
 
 .salvar{
   padding: 8px 8px 8px 8px;
