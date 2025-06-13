@@ -3,6 +3,9 @@
 let AbrirTarefas = document.getElementById('div__tarefas');
 let FecharTarefas = document.getElementById('fechar__gerenciador');
 let GerenciarTarefas = document.getElementById('Gerenciador__de__tarefas');
+
+
+
 // funções de abrir e fechar o gerenciador
 function MostrarGerenciador(){
     GerenciarTarefas.style.display = ("block");
@@ -295,6 +298,9 @@ function iniciarContagem (){
                 tarefas.forEach(tarefa => {
                 removerTaskItemPorId(tarefa.id);
                 removerLabelTarefaPorId(tarefa.id);
+                if (localStorage.getItem("AtivarDiario") === "true") {
+                 localStorage.setItem("CriarDiarioProximaPagina", "true"); 
+                }
                 });
                 return;
             }

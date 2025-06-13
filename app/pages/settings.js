@@ -3,6 +3,14 @@ let minute = document.getElementById('minute');
 let pause = document.getElementById('pause');
 let Notificacao = document.getElementById('option__3');
 let ConfigCronometro = document.getElementById('option__1');
+let CheckDiario = document.getElementById('option__2');
+//---------------------------------------------------------------------------------------------
+
+// Habilitar criação de resumo ao zerar 
+CheckDiario.addEventListener("change", () => {
+  localStorage.setItem("AtivarDiario", Resumo.checked ? "true" : "false");
+});
+
 
 //---------------------------------------------------------------------------------------------
 

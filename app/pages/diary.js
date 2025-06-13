@@ -1,22 +1,27 @@
-// VARIÁVEIS NECESSÁRIAS
-let btnResumo = document.getElementById('adicionar');
-let pomodoroContainer = document.getElementById('pomodoro__container');
-let searchBar = document.getElementById('search__bar');
+//Variáveis
+let BtnDiario = document.getElementById('adicionar');
+let BarraAddDiario = document.getElementById('search__bar');
+let PomodoroContainer = document.getElementById('pomodoro__container');
 let CardContainer = document.getElementById('cards__container');
-let resumos = JSON.parse(localStorage.getItem("resumos")) || [];
+let Diarios = JSON.parse(localStorage.getItem("diarios")) || [];
+ let dataAtual = new Date();
+ let dataFormatada = dataAtual.toLocaleDateString('pt-BR'); 
 
 
-//cria tanto a div quanto o card
-function PaginaResumo(abrirEdicao = true){
-    // pegar valor do input
-    let Nome = searchBar.value.trim();
-     // criar div flutuante
+function PaginaDiario(){
+   let Nome;
+if (BarraAddDiario.value.trim()) {
+  let partes = BarraAddDiario.value.split("-");
+  Nome = `${partes[2]}/${partes[1]}/${partes[0]}`;
+} else {
+  Nome = dataFormatada; 
+}
 
-     //fundo
-     let FundoDiv = document.createElement('div');
-     FundoDiv.className = "add__page";
-     
-     //topo
+    //Fundo
+    let FundoDiv = document.createElement('div');
+    FundoDiv.className = "add__page";
+
+    //topo
      let TopoDiv = document.createElement('div');
      TopoDiv.className = "top__edit";
      
@@ -41,9 +46,8 @@ function PaginaResumo(abrirEdicao = true){
      // Adcionando os elementos as divs
      TopoDiv.append(titulo, ImgBtnFechar);
      FundoDiv.append(TopoDiv, CampoEscrita, BtnSalvar, BtnApagar);
-     pomodoroContainer.appendChild(FundoDiv);
-     
-     // função de salvar, toda a parte de salvar os objetos
+     PomodoroContainer.appendChild(FundoDiv);
+
      let FundoCard = document.createElement('div');
       FundoCard.className = "card";
       let TituloCard = document.createElement('h4');
@@ -56,7 +60,7 @@ function PaginaResumo(abrirEdicao = true){
       let id = Date.now();
       let IdCard = FundoCard.id = "card-" + id;
       
-      let NovoResumo = {
+      let NovoDiario = {
         id: id,
         nome: Nome,
         texto: "",
@@ -71,43 +75,36 @@ function PaginaResumo(abrirEdicao = true){
         BtnSalvar.addEventListener("click", function(){
           let novoTexto = CampoEscrita.value.trim();
           TextoCard.textContent = limitarTexto(novoTexto, 80);
-          NovoResumo.texto = novoTexto;
-          let index = resumos.findIndex(item => item.id === id);
+          Diarios.texto = novoTexto;
+          let index = Diarios.findIndex(item => item.id === id);
           if (index === -1) {
-            NovoResumo.texto = novoTexto;
-            resumos.push(NovoResumo);
+            NovoDiario.texto = novoTexto;
+            Diarios.push(NovoDiario);
             CardContainer.appendChild(FundoCard);
           } else {
-            resumos[index].texto = novoTexto;
+            Diarios[index].texto = novoTexto;
           }
   
-        localStorage.setItem("resumos", JSON.stringify(resumos));
+        localStorage.setItem("diarios", JSON.stringify(Diarios));
       
         });
   
       FundoCard.addEventListener("click", function(){
-          abrirResumo(NovoResumo);
+          abrirDiario(NovoDiario);
       });
   
       BtnApagar.addEventListener("click", function(){
           FundoDiv.remove();
           FundoCard.remove();
-            resumos = resumos.filter(item => item.id !== id);
-      localStorage.setItem("resumos", JSON.stringify(resumos));
+            Diarios = Diarios.filter(item => item.id !== id);
+      localStorage.setItem("diarios", JSON.stringify(Diarios));
       })
   
-      localStorage.setItem("resumos", JSON.stringify(resumos));
+      localStorage.setItem("diarios", JSON.stringify(Diarios));
       } 
 
-  
 
-
-// if (localStorage.getItem(("CriarResumoProximaPagina") === "true")){
-//   PaginaResumo(false);
-// }
-
-
-function abrirResumo(resumo) {
+function abrirDiario(diario) {
   let FundoDiv = document.createElement('div');
   FundoDiv.className = "add__page";
 
@@ -115,14 +112,14 @@ function abrirResumo(resumo) {
   TopoDiv.className = "top__edit";
 
   let titulo = document.createElement('h1');
-  titulo.textContent = resumo.nome;
+  titulo.textContent = diario.nome;
 
   let ImgBtnFechar = document.createElement('img');
   ImgBtnFechar.src = "../images/close.svg";
   ImgBtnFechar.alt = "Botão de fechar";
 
   let CampoEscrita = document.createElement('textarea');
-  CampoEscrita.value = resumo.texto;
+  CampoEscrita.value = diario.texto;
 
   let BtnSalvar = document.createElement('button');
   BtnSalvar.className = "salvar";
@@ -134,19 +131,19 @@ function abrirResumo(resumo) {
 
   TopoDiv.append(titulo, ImgBtnFechar);
   FundoDiv.append(TopoDiv, CampoEscrita, BtnSalvar, BtnApagar);
-  pomodoroContainer.appendChild(FundoDiv);
+  PomodoroContainer.appendChild(FundoDiv);
 
   ImgBtnFechar.addEventListener("click", () => FundoDiv.remove());
   
   BtnSalvar.addEventListener("click", () => {
     let novoTexto = CampoEscrita.value.trim();
-    const index = resumos.findIndex(r => r.id === resumo.id);
+    const index = Diarios.findIndex(r => r.id === diario.id);
     if (index !== -1) {
-      resumos[index].texto = novoTexto;
-      localStorage.setItem("resumos", JSON.stringify(resumos));
+      Diarios[index].texto = novoTexto;
+      localStorage.setItem("diarios", JSON.stringify(Diarios));
       
       // Atualiza o card
-      const card = document.getElementById(resumo.idCard);
+      const card = document.getElementById(diario.idCard);
       if (card) {
         card.querySelector(".preview").textContent = limitarTexto(novoTexto, 80);
       }
@@ -155,34 +152,34 @@ function abrirResumo(resumo) {
   
   BtnApagar.addEventListener("click", () => {
     FundoDiv.remove();
-    const card = document.getElementById(resumo.idCard);
+    const card = document.getElementById(diario.idCard);
     if (card) card.remove();
-    resumos = resumos.filter(r => r.id !== resumo.id);
-    localStorage.setItem("resumos", JSON.stringify(resumos));
+    Diarios = Diarios.filter(r => r.id !== diario.id);
+    localStorage.setItem("diarios", JSON.stringify(Diarios));
   });
 }
 
-function carregarResumosSalvos() {
-  const resumosSalvos = localStorage.getItem("resumos");
-  if (resumosSalvos) {
-    resumos = JSON.parse(resumosSalvos);
+function carregarDiariosSalvos() {
+  const diariosSalvos = localStorage.getItem("diarios");
+  if (diariosSalvos) {
+    Diarios = JSON.parse(diariosSalvos);
     
-    resumos.forEach(resumo => {
+    Diarios.forEach(diario => {
       let card = document.createElement("div");
       card.className = "card";
-      card.id = resumo.idCard;
+      card.id = diario.idCard;
       
       let titulo = document.createElement("h4");
-      titulo.textContent = resumo.nome;
+      titulo.textContent = diario.nome;
       
       let texto = document.createElement("p");
       texto.className = "preview";
-      texto.textContent = limitarTexto(resumo.texto, 80);
+      texto.textContent = limitarTexto(diario.texto, 80);
       
       card.append(titulo, texto);
       CardContainer.appendChild(card);
       
-      card.addEventListener("click", () => abrirResumo(resumo));
+      card.addEventListener("click", () => abrirDiario(diario));
     });
   }
 }
@@ -194,6 +191,6 @@ function limitarTexto(texto, limite) {
     : texto;
 }
 
-carregarResumosSalvos();
+carregarDiariosSalvos();
 
-btnResumo.addEventListener("click",PaginaResumo);
+BtnDiario.addEventListener("click",PaginaDiario);
