@@ -90,49 +90,53 @@ if (BarraAddDiario.value.trim()) {
         });
   
       FundoCard.addEventListener("click", function(){
-          abrirDiario(NovoDiario);
+        abrirDiario(NovoDiario);
       });
-  
+      
       BtnApagar.addEventListener("click", function(){
-          FundoDiv.remove();
-          FundoCard.remove();
-            Diarios = Diarios.filter(item => item.id !== id);
-      localStorage.setItem("diarios", JSON.stringify(Diarios));
+        FundoDiv.remove();
+        FundoCard.remove();
+        Diarios = Diarios.filter(item => item.id !== id);
+        localStorage.setItem("diarios", JSON.stringify(Diarios));
       })
-  
+      
       localStorage.setItem("diarios", JSON.stringify(Diarios));
       } 
-
+      
+      if (localStorage.getItem(("CriarResumoProximaPagina") === "true")){
+        PaginaDiario();
+        localStorage.removeItem("CriarResumoProximaPagina");
+      }
 
 function abrirDiario(diario) {
   let FundoDiv = document.createElement('div');
   FundoDiv.className = "add__page";
-
+  
   let TopoDiv = document.createElement('div');
   TopoDiv.className = "top__edit";
-
+  
   let titulo = document.createElement('h1');
   titulo.textContent = diario.nome;
-
+  
   let ImgBtnFechar = document.createElement('img');
   ImgBtnFechar.src = "../images/close.svg";
   ImgBtnFechar.alt = "Botão de fechar";
-
+  
   let CampoEscrita = document.createElement('textarea');
   CampoEscrita.value = diario.texto;
-
+  
   let BtnSalvar = document.createElement('button');
   BtnSalvar.className = "salvar";
   BtnSalvar.textContent = "Salvar";
-
+  
   let BtnApagar = document.createElement('button');
   BtnApagar.className = "apagar";
   BtnApagar.textContent = "Apagar";
-
+  
   TopoDiv.append(titulo, ImgBtnFechar);
   FundoDiv.append(TopoDiv, CampoEscrita, BtnSalvar, BtnApagar);
   PomodoroContainer.appendChild(FundoDiv);
-
+  
   ImgBtnFechar.addEventListener("click", () => FundoDiv.remove());
   
   BtnSalvar.addEventListener("click", () => {

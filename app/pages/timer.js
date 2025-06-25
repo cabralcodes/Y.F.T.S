@@ -298,10 +298,10 @@ function iniciarContagem (){
                 tarefas.forEach(tarefa => {
                 removerTaskItemPorId(tarefa.id);
                 removerLabelTarefaPorId(tarefa.id);
-                if (localStorage.getItem("AtivarDiario") === "true") {
-                 localStorage.setItem("CriarDiarioProximaPagina", "true"); 
-                }
-                });
+            });
+            if (localStorage.getItem("AtivarDiario") === "true") {
+             localStorage.setItem("CriarDiarioProximaPagina", "true"); 
+            }
                 return;
             }
 
