@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="main">
+        <div class="pomodoro__container">
+            <div>
+                <nav class="title">
+                    <h1 class="pomodoro__abbr">Y.F.T.S</h1>
+                    <p class="pomodoro__name">Your Focus and Task System</p>
+                </nav>
+            </div>
+
+            <div class="set__choronometer">
+                <h4>Cronômetro</h4>
+                <div class="mini__titles">
+                    <p>Timer</p>
+                    <p>Pausa</p>
+                </div>
+                <div class="minutes_and_pause">
+                    <label for="minute"><input type="number" name="minute" id="minute">minutos</label>
+                    <label for="pause"><input type="number" name="pause" id="pause"> minutos</label>
+                </div>
+                <div class="options">
+                    <label for="option__1"><input type="checkbox" name="option__1" id="option__1"> Alterne automaticamente entre foco e pausa quando o cronômetro zerar.</label>
+                    <label for="option__2"> <input type="checkbox" name="option__2" id="option__2"> Criar resumo sempre que o timer encerrar.</label>
+                    <label for="option__3"><input type="checkbox" name="option__3" id="option__3">Notificação sonora ao fim de um período.</label>
+                </div>
+            </div>
+            <div class="add__task">
+                <h1>Lembretes</h1>
+                <div class="gerenciar">
+                    <input type="text" name="dicionar_tarefas" id="reminder__bar" placeholder="Colher Maçãs...">
+                    <button class="adicionar" id="btn__reminder">Adicionar</button>
+                </div>
+                <div class="tasks" id="add__task">
+                    <div class="task__row">
+                        <p>Beber água</p>
+                        <img src="../images/Trash 2.png" alt="apagar">
+                    </div>
+                </div>
+
+            </div>
+<script src="reminder.js" defer></script>
+</body>
+</html>
