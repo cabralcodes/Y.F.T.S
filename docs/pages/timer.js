@@ -87,7 +87,7 @@ function mostrarNaTela(tarefa) {
     let botao = document.createElement("button");
     botao.className = "btn__apagar";
     let lixeira = document.createElement("img");
-    lixeira.src = "../images/Trash 2.png";
+    lixeira.src = "./images/Trash 2.png";
     lixeira.alt = "Apagar tarefa";
     botao.appendChild(lixeira);
     

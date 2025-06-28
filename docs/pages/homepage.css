@@ -312,6 +312,7 @@ a {
     }
     .pomodoro__task{
         gap: 0;
+        width: 260px;
     }
 
      .add__task{
