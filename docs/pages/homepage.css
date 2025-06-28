@@ -127,9 +127,9 @@ html, body {
 .pomodoro__task{
     display: flex;
     justify-content: space-between; 
-    gap: 350px;
     align-items: center;
     margin-bottom: 16px; 
+    gap: 350px;
 }
 
 .checklist{
@@ -303,7 +303,7 @@ a {
     
 }
 
-@media (max-width:320px) {
+@media (max-width:500px) {
     .menu__inferior{
         width: 330px;
     }
@@ -312,8 +312,9 @@ a {
     }
     .pomodoro__task{
         gap: 0;
-        width: 260px;
+        width: 270px;
     }
+
 
      .add__task{
         width: 320px;
@@ -333,3 +334,5 @@ a {
     
 
 }
+
+
