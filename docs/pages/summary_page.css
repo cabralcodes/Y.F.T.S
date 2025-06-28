@@ -86,7 +86,7 @@ body {
   width: 150px;
   border-color: transparent;
   background-color: rgba(10, 18, 42, 1);
-  border-color: transparent;
+
   color: white;
   font-family: "Inter-Medium";
   border-radius: 7px;
@@ -210,21 +210,27 @@ border-color: transparent;
   border-radius: 7px;
 }
 
-@media (max-width:320px) {
+@media (max-width:500px) {
   .main{
     z-index: 0;
   }
 
   .add__page{
     width: 320px;
+    height: 500px;
   }
 
   .salvar{
     margin-right: 100px;
+    
   }
 
   .apagar{
     margin-right: 0;
+  }
+
+ .add__page textarea{
+    width: 313px;
   }
 
   #diary{
@@ -254,10 +260,13 @@ border-color: transparent;
   }
   
     .search{
-      gap: 0;
+      width: 200px;
+      gap: 40px;
     }
     #search__bar{
       width: 150px;
+      height: 20px;
+      gap: 0;
     }
 
     .search h1{
@@ -265,7 +274,7 @@ border-color: transparent;
     }
 
     .adicionar{
-      width: 80px;
+      border: 0;
     }
 
     .menu__inferior{
@@ -274,11 +283,15 @@ border-color: transparent;
 
 }
 
-@media (max-width:768px) {
+@media (min-width:768px) and (max-width:900px) {
     .search{
-      gap: 90px;
+      gap: 100px;
     }
     
+    #search__bar {
+      width: 300px;
+    }
+
     .cards__container{
        overflow-x: scroll;
       position: relative;

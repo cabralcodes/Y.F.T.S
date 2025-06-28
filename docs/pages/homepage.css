@@ -315,6 +315,9 @@ a {
         width: 270px;
     }
 
+    #fechar__gerenciador{
+        margin-left: 180px;
+    }
 
      .add__task{
         width: 320px;

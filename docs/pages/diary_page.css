@@ -208,13 +208,14 @@ border-color: transparent;
   border-radius: 7px;
 }
 
-@media (max-width:320px) {
+@media (max-width:500px) {
   .main{
     z-index: 0;
   }
 
   .add__page{
     width: 320px;
+    height: 500px;
   }
 
   .salvar{
@@ -223,6 +224,10 @@ border-color: transparent;
 
   .apagar{
     margin-right: 0;
+  }
+
+  .add__page textarea{
+    width: 313px;
   }
 
   #diary{
@@ -252,10 +257,13 @@ border-color: transparent;
   }
   
     .search{
-      gap: 0;
+      width: 200px;
+      gap: 70px;
     }
     #search__bar{
       width: 150px;
+      height: 20px;
+      gap: 0;
     }
 
     .search h1{
@@ -263,7 +271,7 @@ border-color: transparent;
     }
 
     .adicionar{
-      width: 80px;
+      border: 0;
     }
 
     .menu__inferior{
@@ -272,7 +280,7 @@ border-color: transparent;
 
 }
 
-@media (max-width:768px) {
+@media (min-width:768px) and (max-width:900px) {
     .search{
       gap: 90px;
     }
