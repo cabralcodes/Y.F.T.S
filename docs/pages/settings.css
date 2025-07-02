@@ -303,7 +303,7 @@ a {
     height:550px;
 }
 
-@media (max-width:320px) {
+@media (max-width:400px) {
   .set__choronometer{
     width: 320px;
     height: 300px;
@@ -314,6 +314,14 @@ a {
   }
 
   .add__task{
-    width: 320px;
+    width: 400px;
+  }
+
+  .add__task h1 {
+    margin-left: 50px;
+  }
+
+  .gerenciar {
+    gap: 10px ;
   }
 }
